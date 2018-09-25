@@ -17,6 +17,17 @@ timer.Create("SendMoneyLeaderboard", 5, 0, function()
 end)
 
 function ENT:Initialize()
+    
+    if gmod.GetGamemode().Name != "DarkRP" then
+        self.Owner = self:GetOwner()
+        if self.Owner and self.Owner:IsValid() then
+            self.Owner:ChatPrint("The money leaderboard entity requires the DarkRP Gamemode, entity removed!")
+        end
+        error("MoneyLeaderboard addon requires DarkRP!")
+        self:Remove()
+        return
+    end
+    
     self:SetModel("models/hunter/plates/plate2x2.mdl")
     self:PhysicsInit(SOLID_VPHYSICS)
     self:SetMoveType(MOVETYPE_VPHYSICS)
