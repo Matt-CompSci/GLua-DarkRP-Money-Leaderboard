@@ -17,6 +17,15 @@ timer.Create("SendMoneyLeaderboard", 5, 0, function()
 end)
 
 function ENT:Initialize()
+    
+    if(gmod.GetGamemode().Name != "DarkRP") then
+        
+        print("This is not being ran in DarkRP! Removing entity!")
+        self:Remove()
+        return
+        
+    end
+    
     self:SetModel("models/hunter/plates/plate2x2.mdl")
     self:PhysicsInit(SOLID_VPHYSICS)
     self:SetMoveType(MOVETYPE_VPHYSICS)
