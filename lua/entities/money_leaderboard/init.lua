@@ -18,7 +18,7 @@ end)
 
 function ENT:Initialize()
     
-    if(gmod.GetGamemode().Name != "DarkRP") then
+    if gmod.GetGamemode().Name != "DarkRP" then
         
         print("This is not being ran in DarkRP! Removing entity!")
         self:Remove()
