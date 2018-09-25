@@ -19,7 +19,11 @@ end)
 function ENT:Initialize()
     
     if gmod.GetGamemode().Name != "DarkRP" then
-        print("This is not being ran in DarkRP! Removing entity!")
+        self.Owner = self:GetOwner()
+        if self.Owner and self.Owner:IsValid() then
+            self.Owner:ChatPrint("The money leaderboard entity requires the DarkRP Gamemode, entity removed!")
+        end
+        error("MoneyLeaderboard addon requires DarkRP!")
         self:Remove()
         return
     end
