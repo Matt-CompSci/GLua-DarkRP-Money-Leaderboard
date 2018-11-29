@@ -1,11 +1,11 @@
 include("shared.lua")
 
-surface.CreateFont("Billboard Font", {
+surface.CreateFont("moneyboard1", {
 	font = "Arial",
 	size = 28
 })
 
-surface.CreateFont("Billboard Title Font", {
+surface.CreateFont("moneyboard2", {
 	font = "Arial",
 	size = 42
 })
@@ -31,13 +31,13 @@ function ENT:Draw()
         surface.SetDrawColor(55, 55, 55)
 	    surface.DrawRect(100, 250, 750, 530)
 
-	    draw.SimpleText("Money Leaderboard", "Billboard Title Font", 465, 210, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+	    draw.SimpleText("Money Leaderboard", "moneyboard2", 465, 210, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
         
 
         for k, v in pairs(MoneyLeaderboard) do
-        	draw.SimpleText(tostring(k) .. ":", "Billboard Font", 180, 240 + k * 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-        	draw.SimpleText(v.rpname, "Billboard Font", 465, 240 + k * 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
-        	draw.SimpleText("$" .. string.Comma(v.wallet), "Billboard Font", 750, 240 + k * 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        	draw.SimpleText(tostring(k) .. ":", "moneyboard1", 180, 240 + k * 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        	draw.SimpleText(v.rpname, "moneyboard1", 465, 240 + k * 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        	draw.SimpleText("$" .. string.Comma(v.wallet), "moneyboard1", 750, 240 + k * 50, Color(255, 255, 255), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
         end
 
 	    
