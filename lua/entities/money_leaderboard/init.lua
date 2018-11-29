@@ -4,7 +4,7 @@ AddCSLuaFile("cl_init.lua")
 
 util.AddNetworkString("moneyleaderboard_sendplayers")
 
-timer.Create("SendMoneyLeaderboard", 5, 0, function()
+timer.Create("moneyleaderboard_getplayers", 5, 0, function()
     local Leaderboard = MySQLite.query ([[SELECT * FROM darkrp_player ORDER BY wallet DESC LIMIT 20]])
     local Index = 2
     for i = 2, 20, 2 do
