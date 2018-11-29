@@ -2,7 +2,7 @@ include("shared.lua")
 AddCSLuaFile("shared.lua")
 AddCSLuaFile("cl_init.lua")
 
-util.AddNetworkString("SendMoneyLeaderboard")
+util.AddNetworkString("moneyleaderboard_sendplayers")
 
 timer.Create("SendMoneyLeaderboard", 5, 0, function()
     local Leaderboard = MySQLite.query ([[SELECT * FROM darkrp_player ORDER BY wallet DESC LIMIT 20]])
@@ -11,7 +11,7 @@ timer.Create("SendMoneyLeaderboard", 5, 0, function()
         table.remove(Leaderboard, Index)
         Index = Index + 1
     end
-    net.Start("SendMoneyLeaderboard")
+    net.Start("moneyleaderboard_sendplayers")
     net.WriteTable(Leaderboard)
     net.Broadcast()
 end)
