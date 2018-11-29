@@ -12,7 +12,7 @@ surface.CreateFont("moneyboard2", {
 
 local MoneyLeaderboard = {}
 
-net.Receive("SendMoneyLeaderboard", function()
+net.Receive("moneyleaderboard_sendplayers", function()
 	MoneyLeaderboard = net.ReadTable()
 end)
 
